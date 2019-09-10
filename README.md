@@ -1,7 +1,22 @@
-driver_model
+Lyft driver model
 ==============================
 
 A lyft data science challenge from 2019.
+
+
+Installation
+------------
+
+This project was created with cookiecutter, so ideally, first install Anaconda. Then follow these commands:
+
+    conda create -n lyft
+    conda activate lyft
+    conda install numpy scipy pandas scikit-learn pytest flake8 pytest-coverage ipykernel matplotlib seaborn
+    pip install -r requirements.txt
+    
+    # needed to run jupyter notebooks in this conda environment
+    python -m ipykernel install --name lyft --user 
+    
 
 Project Organization
 ------------
@@ -36,7 +51,7 @@ Project Organization
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   │   └── make_dataset.py 
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
