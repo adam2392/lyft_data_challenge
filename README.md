@@ -1,7 +1,7 @@
 Lyft driver model
 ==============================
 
-A lyft data science challenge from 2019.
+A lyft data science challenge from 2019. 
 
 
 Installation
@@ -17,6 +17,19 @@ This project was created with cookiecutter, so ideally, first install Anaconda. 
     # needed to run jupyter notebooks in this conda environment
     python -m ipykernel install --name lyft --user 
     
+Final Report
+------------
+
+See "NCSL_writeup_AL.pdf", or go to reports/ and compile the latex. Everything was done without any special software 
+necessary, so any latex reader should work.
+
+All figures corresponding to worthwhile analysis are in reports/figures/.
+
+All notebooks corresponding to analysis done are in notebooks/
+
+In general, notebooks should be able to be run in sequence, but due to storage constraints, there are 
+tables not able to be attached and saved. These are generally "interim" tables generated from performing
+analysis described in the report. However, all figures were generated at some point from these notebooks.
 
 Project Organization
 ------------

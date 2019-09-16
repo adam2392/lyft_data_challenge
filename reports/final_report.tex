@@ -21,17 +21,18 @@
 
 \title{Lyft 2019 Data Challenge - An analysis of drivers}
 
-% \author{
-%   Adam Li \\
-%   Department of Applied Mathematics \& Statistics, \\
-%   Department of Biomedical Engineering, \\
-%   Johns Hopkins University, Baltimore, MD, 21218
-%   \texttt{adam2392@gmail.com} 
-% }
+\author{
+  Adam Li \\
+  Department of Applied Mathematics \& Statistics, \\
+  Department of Biomedical Engineering, \\
+  Johns Hopkins University, Baltimore, MD, 21218
+  \texttt{adam2392@gmail.com} 
+}
 \begin{document}
 % \maketitle
 
-\textbf{Lyft 2019 Data Challenge - An analysis of drivers}
+\textbf{Lyft 2019 Data Challenge - An analysis of drivers}\\
+Adam Li | Johns Hopkins University, Baltimore, MD, 21218 | \texttt{adam2392@gmail.com} 
 
 \section{Summary}
 	% Background on Lyft
@@ -41,7 +42,7 @@
 	The amount of total revenue a driver brings to Lyft is generally controlled by two factors: the number of rides they give and the average revenue they collect per ride. We estimated the DLV by first estimating i) the number of rides per week on average that a driver gives, ii) the projected average lifetime of a driver in weeks, and iii) the average fare of a ride. We did not have any notion of cost per driver that Lyft incurs, so assumed a fixed cost per driver, we computed a DLV of \$6896.08 per driver and an APL of 26.44 weeks.
 
 	% Driver behavior summary
-	We identified two subsets of driver populations within the data based on the total \# rides given (with a cutoff at \$169). The DLV of this \textbf{3 month period} based on this was for Group A = \$72.87 $\pm$ \$1.66 and Group B = \$546.49 $\pm$ \$10.03. In addition to generating revenue, drivers are essential for maintaining Lyft's driver/rider economy, and so we want to have drivers that are reliant sources of revenue for Lyft and giving consistent rides to riders.
+	We identified two subsets of driver populations within the data based on the total \# rides given (with a cutoff at 83 rides), separating into a short and long term driver subpopulation. The revenue generated per driver based on this was for Group A = \$72.87 $\pm$ \$1.66 and Group B = \$546.49 $\pm$ \$10.03. In addition we determined that late evenings (6PM-12AM), weekends (Friday/Saturdays) and summer-time months (May/June) have more rides and PT in general.
 
 	\textbf{DLV = number rides per week X APL (in weeks) X average ride value = 138 X 26.44 X 1.89 = \$6896.08} 
 
@@ -50,7 +51,7 @@
 
 	\subsection{Methods}
 		% High level code summary
-		For the analysis stated, we used a combination of Python (Jupyter, Numpy, Pandas and Scipy) and Matlab (some extra plotting) hosted on: \href{https://github.com/adam2392/lyft_data_challenge}{link}. Instructions for reproducing in an Anaconda environment are left online. Three data tables were used: i) ride\_timestamps.csv, ii) ride\_ids.csv and iii) driver\_ids.csv.
+		For the analysis stated, we used a combination of Python (Jupyter, Numpy, Pandas and Scipy) and Matlab (some extra plotting) hosted on: \href{https://github.com/adam2392/lyft_data_challenge}{https://github.com/adam2392/lyft\_data\_challenge}. Instructions for reproducing in an Anaconda environment are left online. Three data tables were used: i) ride\_timestamps.csv, ii) ride\_ids.csv and iii) driver\_ids.csv.
 
 		% Data used
 		Before any data analysis was performed, the ride\_timestamps.csv file was analyzed to determine if there were any incomplete rides, and to compute time-of-day (four 6 hour bins starting at 12:00AM), day-of-week and month of the rides. Each ride was converted into the corresponding units of miles and minutes, and then used to compute the total fare, lyft revenue generated, fare due to primetime, fare due to mileage and fare due to time. These fare breakdowns give a holistic view of each ride, and allow us to determine the value for Lyft per ride, and the factors that affect the total fare in the ride (e.g. primetime (PT), mileage and time). We computed fares by writing a Python class for the Ride and Fare to compute for each respective ride. This could be easily extended to include tips, quality ratings and more complicated fares (e.g. Lyft Line). 
@@ -70,7 +71,7 @@
 		\begin{figure}[!htb]
 			\centering
 			\begin{subfigure}[t]{0.49\textwidth}
-			\includegraphics[width=\linewidth]{avg_number_rides_perweek.pdf}
+			\includegraphics[width=\linewidth]{timefactor_analysis/avg_number_rides_perweek.pdf}
 			\caption{}
 			\label{fig:avg_rides_perweek}
 			\end{subfigure}
@@ -78,7 +79,7 @@
 		% \begin{figure}[!htb]
 			\centering
 			\begin{subfigure}[t]{0.49\textwidth}
-			\includegraphics[width=\linewidth]{cohort_over_time.pdf}
+			\includegraphics[width=\linewidth]{cohort_analysis_apl/cohort_over_time.pdf}
 			\caption{}
 			\label{fig:driver_cohort_over_time}
 			\end{subfigure}
@@ -121,33 +122,33 @@
 			\begin{figure}[!htb]
 				\centering
 				\begin{subfigure}[t]{0.32\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_rides_per_monthdriver.pdf}
+					\includegraphics[width=\linewidth]{timefactor_analysis/avg_number_rides_per_monthdriver.pdf}
 					\caption{}
 				\end{subfigure}
 				\begin{subfigure}[t]{0.32\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_rides_per_dayofweekdriver.pdf}
+					\includegraphics[width=\linewidth]{timefactor_analysis/avg_number_rides_per_dayofweekdriver.pdf}
 					\caption{}
 				\end{subfigure}
 				\begin{subfigure}[t]{0.32\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_rides_per_timeofdaydriver.pdf}
+					\includegraphics[width=\linewidth]{timefactor_analysis/avg_number_rides_per_timeofdaydriver.pdf}
 					\caption{}
 				\end{subfigure}\\
 
 				\centering
 				\begin{subfigure}[t]{0.24\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_pt_per_month.pdf}
+					\includegraphics[width=\linewidth]{pt_analysis/avg_number_pt_per_month.pdf}
 					\caption{}
 				\end{subfigure}
 				\begin{subfigure}[t]{0.24\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_pt_per_dayofweek.pdf}
+					\includegraphics[width=\linewidth]{pt_analysis/avg_number_pt_per_dayofweek.pdf}
 					\caption{}
 				\end{subfigure}
 				\begin{subfigure}[t]{0.24\textwidth}
-					\includegraphics[width=\linewidth]{avg_number_pt_per_timeofday.pdf}
+					\includegraphics[width=\linewidth]{pt_analysis/avg_number_pt_per_timeofday.pdf}
 					\caption{}
 				\end{subfigure}
 				\begin{subfigure}[t]{0.24\textwidth}
-					\includegraphics[width=\linewidth]{pre_pt_rev_percentage.pdf}
+					\includegraphics[width=\linewidth]{pt_analysis/pre_pt_rev_percentage.pdf}
 					\caption{}
 				\end{subfigure}
 				\caption{}
@@ -160,11 +161,6 @@
 
 		\subsubsection{Primetime}
 			In addition, we looked at the effect of PT. In figure \ref{fig:number_rides_pt}, we see that PT is more prominent in May/June and weekends.
-
-			% Effect of PT
-			\begin{figure}[!htb]
-
-			\end{figure} 
 
 		\subsubsection{Ride Type: Mileage versus Time}
 			We also looked at categorizations of rides based on their \% of fare due to mileage and time. We simply found that majority of rides were more due to milage, which makes sense since mileage is charged at \$1.15 per unit, versus \$0.22 per unit of time. 
