@@ -8,5 +8,10 @@ with corresponding rides, to see if there is some behavior we can glean.
 2. All rides are essentially completed - according to script ran through
 3. There are 194081 rides total
 4. split data into time of day: 1=(0,6), ... 4=(18,24) in terms of hours
+5. 9262 ride completed events without other data matching based on ride_ids.
 
 ## Driver Info
+
+Naive DLV based on 3 month period:  546.3172712808505 +/- 14.99
+
+1. Average #
