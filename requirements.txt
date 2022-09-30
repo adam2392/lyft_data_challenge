@@ -3,7 +3,7 @@ chardet==3.0.4
 Cython==0.29
 h5py==2.10.0
 idna==2.8
-joblib==0.13.2
+joblib==1.2.0
 jupyter-contrib-core==0.3.3
 jupyter-nbextensions-configurator==0.4.1
 mgcpy==0.4.0
